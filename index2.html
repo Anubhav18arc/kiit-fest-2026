@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anshika 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff9fcf;
+  --pink-dark:#ff6fae;
+  --lavender:#d6c7f7;
+  --peach:#ffd6b8;
+  --cream:#fff7fb;
+  --text:#6b4b57;
+  --white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+  font-family:'Quicksand',sans-serif;
+  background:linear-gradient(135deg,var(--pink),var(--lavender),var(--peach));
+  background-size:300% 300%;
+  animation:bg 16s ease infinite;
+  color:var(--text);
+  text-align:center;
+  overflow-x:hidden;
+}
+
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+  position:relative;
+}
+
+/* ❤️ Floating Hearts */
+.heart-bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.floating-heart{
+  position:absolute;
+  opacity:.7;
+  animation:float linear forwards;
+}
+
+@keyframes float{
+  from{transform:translateY(110vh) rotate(0deg);opacity:0}
+  10%{opacity:.8}
+  to{transform:translateY(-15vh) rotate(360deg);opacity:0}
+}
+
+/* 🎵 Music Button */
+.music-control{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:var(--white);
+  border:2px solid var(--pink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  z-index:1000;
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+
+/* 🌸 Hero */
+.hero h1{
+  font-family:'Pacifico',cursive;
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  color:var(--pink-dark);
+  animation:fade 2s ease;
+}
+.hero p{
+  margin-top:18px;
+  font-size:1.2rem;
+  font-style:italic;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.btn-start{
+  margin-top:40px;
+  padding:15px 45px;
+  border-radius:50px;
+  background:var(--pink);
+  color:white;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,150,200,.4);
+  transition:.3s;
+}
+.btn-start:hover{transform:scale(1.1);background:var(--pink-dark);}
+
+/* 💖 Cards */
+.cards{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding:30px;
+  max-width:1100px;
+}
+.cards::-webkit-scrollbar{display:none}
+
+.card{
+  min-width:270px;
+  background:var(--white);
+  padding:25px;
+  border-radius:20px;
+  border:2px solid var(--lavender);
+  box-shadow:0 12px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-12px)}
+
+.card h3{
+  font-family:'Pacifico',cursive;
+  margin-bottom:14px;
+  color:var(--pink-dark);
+}
+
+/* 💌 Question */
+.question-box{
+  background:var(--white);
+  padding:40px;
+  border-radius:30px;
+  max-width:540px;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.btn-group{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+.btn-yes{
+  padding:14px 36px;
+  border-radius:30px;
+  background:var(--pink-dark);
+  color:white;
+  border:none;
+  font-size:1.1rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn-no{
+  padding:12px 30px;
+  border-radius:30px;
+  background:var(--lavender);
+  border:none;
+  font-size:1rem;
+  cursor:pointer;
+  position:relative;
+}
+
+/* 🎉 CELEBRATION OVERLAY (FIXED) */
+#celebration{
+  position:fixed;
+  inset:0;
+  background:var(--cream);
+  z-index:9999;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:fade 1.5s ease;
+}
+
+footer{
+  padding:30px;
+  font-size:.9rem;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="love-story.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control" id="musicBtn">🎵</div>
+<div class="heart-bg" id="heartBg"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>You aren't my first love.<br>You're the one who finally made love make sense.</h1>
+  <p>Anshika 🎀</p>
+  <button class="btn-start" onclick="start()">Start 💗</button>
+</section>
+
+<!-- CARDS -->
+<section id="appreciation">
+  <h2 style="font-family:'Pacifico',cursive;color:var(--pink-dark);margin-bottom:20px;">For You, Anshika</h2>
+
+  <div class="cards">
+    <div class="card"><h3>I Found You</h3><p>Baby, I found you. And fuck, it's no coincidence, it's God's straight-up sign. The universe handed you to me on a silver platter, and now you're mine. No escaping this fate.</p></div>
+    <div class="card"><h3>You Made It All Clear</h3><p>You crashed into my chaos and made everything crystal clear 💝. Like a storm breaking, you lit up my world. Every shadow gone, every doubt shattered. You're my clarity, my addiction.</p></div>
+    <div class="card"><h3>Strongest Girl I Know</h3><p>You're the strongest girl alive, bby. Unbreakable fire in those eyes... handling my demons like they're nothing. I don't deserve you, but damn, I'll fight the world to keep you. My fierce queen.</p></div>
+    <div class="card"><h3>Beautiful as Fuck</h3><p>You're beautiful as fuck. That face, that body—pure sin wrapped in perfection. One look and I'm wrecked, craving every inch. You're not just mine, you're my goddamnn obsession.</p></div>
+  </div>
+
+  <a href="#question" class="btn-start" style="background:var(--lavender);color:var(--text);margin-top:30px;">Something I need you to know…</a>
+</section>
+
+<!-- QUESTION -->
+<section id="question">
+  <div class="question-box">
+    <h2 style="font-family:'Pacifico',cursive;">
+      I was never good with words.<br><br>
+      But somehow, every feeling I have learned to name has your face in it.<br><br>
+      You didn’t fix my chaos.<br>
+      You became the quiet in it.<br><br>
+      And I don’t know how forever works…<br>
+      but if it exists anywhere,<br>
+      it starts with you Anshika 🎀
+    </h2>
+
+    <div class="btn-group">
+      <button class="btn-yes" onclick="celebrate()">Yes 💗</button>
+      <button class="btn-no" id="noBtn">No</button>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRATION -->
+<div id="celebration">
+  <h1 style="font-family:'Pacifico',cursive;font-size:3.5rem;color:var(--pink-dark);">Always You 🌸</h1>
+  <p style="font-size:1.3rem;margin-top:20px;">
+    No matter where life takes us,<br>
+    I'll tear through hell to find you.<br><br>
+    You're my everything, carved into my bones.
+  </p  
+</p>
+</div>
+
+<footer>Built with grit, heart, & brutal honesty.</footer>
+
+<script>
+/* MUSIC */
+const music=document.getElementById("music");
+const musicBtn=document.getElementById("musicBtn");
+let playing=false;
+
+musicBtn.onclick=()=>{
+  if(!playing){music.volume=0.4;music.play();musicBtn.textContent="⏸️";}
+  else{music.pause();musicBtn.textContent="🎵";}
+  playing=!playing;
+};
+
+function start(){
+  music.volume=0.4;
+  music.play();
+  musicBtn.textContent="⏸️";
+  playing=true;
+  document.getElementById("appreciation").scrollIntoView({behavior:"smooth"});
+}
+
+/* HEARTS */
+const bg=document.getElementById("heartBg");
+const icons=["💖","💕","🌸","✨","🎀"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="floating-heart";
+  h.textContent=icons[Math.floor(Math.random()*icons.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(18+Math.random()*30)+"px";
+  h.style.animationDuration=(10+Math.random()*10)+"s";
+  bg.appendChild(h);
+  setTimeout(()=>h.remove(),20000);
+},120);
+
+/* NO BUTTON ESCAPE */
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter",()=>{
+  const x=Math.random()*(window.innerWidth-noBtn.offsetWidth);
+  const y=Math.random()*(window.innerHeight-noBtn.offsetHeight);
+  noBtn.style.position="fixed";
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+});
+
+/* 🎉 CELEBRATE */
+function celebrate(){
+  document.getElementById("celebration").style.display="flex";
+  document.body.style.overflow="hidden";
+}
+</script>
+
+</body>
+</html>
